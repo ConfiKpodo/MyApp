@@ -1,0 +1,44 @@
+
+
+<mat-card>
+    <div class="example-container">
+        <form class="example-container" #userForm ="ngForm" (ngSubmit)="(userForm.value)">
+            <input type="text" matInput placeholder="First Name" name="firstname" [(ngModel)] = userModel.firstname required>
+            <input type="text" matInput placeholder="Last Name" name="lastname" [(ngModel)] = userModel.lastname required>
+            <input matInput placeholder="username" name="username" [(ngModel)] = userModel.username required>
+            <button mat-raised-button color="primary" [disabled]="userForm.form.invalid" (click)="addUser()">Add</button>
+        </form>
+      </div>
+      
+</mat-card>
+<br><hr>
+
+<div class="form">
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input type="text" matInput name="firstname"  [(ngModel)]="searchUser" (ngModelChange)="search()" placeholder="Search">
+        </mat-form-field>
+      </form>
+    </div><br>
+<mat-card style="margin-left: 3%; margin-right:3%; margin-top: 4%;">
+    <mat-grid-list  cols="4" rowHeight="2:1">
+    <mat-grid-tile 
+    *ngFor="let list of userDetail | slice:0:50"><img src="{{list.avatar}}" style="width: 30%; height:40%;">
+     <div style="font-weight: bold;">
+        <div class="name" >
+            {{list.firstname}}
+            {{list.lastname}}<br><hr>
+            {{list.username}}
+        </div>
+     </div>
+            <br>
+            
+        <div class="delete" style="padding-top: 30%;">
+            <button  mat-raised-button color="warn" (click)="deletePerson(list.id)" >Delete</button>
+         </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>     
+    
+  
+<router-outlet></router-outlet>

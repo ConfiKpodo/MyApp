@@ -1,0 +1,29 @@
+<p>
+    <mat-toolbar color="primary">
+        <button  mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+            <mat-menu #menu="matMenu">
+            <button mat-menu-item>users</button>
+            <button mat-menu-item>Contact Us</button>
+            <button mat-menu-item>About Us </button>
+            </mat-menu>
+            
+     
+      <span style="margin-left: 40%;">My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      </button>
+    </mat-toolbar>
+  </p>
+ <hr>
+
+  <mat-card style="border: 5px;">
+    <mat-tab-group >
+   <mat-tab label="USERS"><app-users></app-users></mat-tab>
+      <mat-tab label="PROJECTS"><app-projects></app-projects></mat-tab>
+      <mat-tab style="font-weight:bold;" label=":="  ><app-listview></app-listview></mat-tab>
+    </mat-tab-group>
+  </mat-card>
+
+ 
+
+<router-outlet></router-outlet>

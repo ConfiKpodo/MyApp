@@ -1,0 +1,29 @@
+<div class="form">
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input  type="text" matInput name="firstname"  [(ngModel)]="searchProject" (ngModelChange)="searchProj()"  placeholder="Search">
+        </mat-form-field>
+      </form>
+    </div><br>
+
+<mat-grid-list  style="margin-left: 3%; margin-right:3%;margin-top: 2%;" cols="4" rowHeight="2:1">
+    <mat-grid-tile 
+    *ngFor="let list of fetchedPro"
+    >
+    <img src="{{list.avatar}}" style="width: 30%; height:40%;">
+     <div style="font-weight: bold;">
+        
+        <div class="name" >
+            {{list.firstname}}
+            {{list.lastname}}<hr>
+            {{list.project}}
+        </div>
+     </div>
+            <br>
+            
+        <div class="delete" style="padding-top: 30%;">
+            <button  mat-raised-button color="warn" (click)="deletePerson(list.id)" >Delete</button>
+         </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+ 
